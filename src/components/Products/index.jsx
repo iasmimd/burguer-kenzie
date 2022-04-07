@@ -1,14 +1,19 @@
 import "./style.css";
 
-const Products = ({ name, category, price, img }) => {
+const Products = ({ img, name, category, price, id, handleClick }) => {
+  // console.log(id);
+
   return (
     <li className="productCard">
+      <img className="productImg" src={img} alt=""></img>
       <h2 className="productName">{name}</h2>
       <span className="productCategory">{category}</span>
       <span className="productPrice">{price}</span>
-      <img className="productImg"  src={img} alt=""></img>
+      <button className="buttonAdd" onClick={() => handleClick(id)}>
+        Adicionar
+      </button>
     </li>
   );
 };
 
-export default Products
+export default Products;
