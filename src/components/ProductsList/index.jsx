@@ -1,19 +1,42 @@
 import "./style.css";
 import Products from "../Products";
 
-const ProductsList = ({ products, handleClick }) => {
+const ProductsList = ({
+  products,
+  handleClick,
+  inputValue,
+  filteredProducts,
+}) => {
   return (
-    <ul>
-      {products.map(({ id, name, category, price, img }) => (
-        <Products
-          handleClick={handleClick}
-          id={id}
-          name={name}
-          category={category}
-          price={price}
-          img={img}
-        />
-      ))}
+    <ul className="ulProduct">
+      {filteredProducts.length > 0 ? (
+        <>
+          {/* {inputValue !== "" && <h1 className="">Resultados para {inputValue}</h1>} */}
+          {filteredProducts.map(({ id, name, category, price, img }) => (
+            <Products
+              key={id}
+              handleClick={handleClick}
+              id={id}
+              name={name}
+              category={category}
+              price={price}
+              img={img}
+            />
+          ))}
+        </>
+      ) : (
+        products.map(({ id, name, category, price, img }) => (
+          <Products
+            key={id}
+            handleClick={handleClick}
+            id={id}
+            name={name}
+            category={category}
+            price={price}
+            img={img}
+          />
+        ))
+      )}
     </ul>
   );
 };

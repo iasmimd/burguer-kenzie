@@ -1,0 +1,86 @@
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #F5F5F5;
+  padding: 10px;
+  height: 125px;
+}
+
+.logoHeader {
+  max-width: 150px;
+  width: 40%;
+}
+
+.inputContainer {
+  display: flex;
+  background-color: #ffffff;
+  border: 1px solid black;
+  border: 1px solid #e0e0e0;
+  width: 93vw;
+  padding: 6px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 6px 2px 6px 6px;
+}
+
+.inputHeader {
+  font-family: "inter";
+  font-weight: 100;
+  font-size: 14px;  
+  width: 73%;
+}
+
+.inputHeader:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+    color: #cec8c8c7;
+    font-weight: 500;
+ }
+
+.buttonHeader {
+  font-family: "inter";
+  border-style: none;
+  font-style: normal;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #27ae60;
+  cursor: pointer;
+  width: 26%;
+  border-radius: 8px;
+  font-size: 80%;
+}
+
+@media (min-width: 1024px){
+  header{
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 5vw;
+  }
+
+  .inputContainer{
+    width: 342px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 1440px){
+  .inputContainer{
+    width: 388px;
+  }
+}
+
+@media (min-width: 1528px){
+  header{
+    padding: 0px 82px;
+  }
+
+  .inputContainer {
+    width: 412px;
+}
+}

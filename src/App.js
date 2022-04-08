@@ -1,11 +1,11 @@
-import logo from './logo.svg';
 import './styles/reset.css'
 import './styles/App.css';
+import toast, { Toaster } from 'react-hot-toast';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import ProductsList from './components/ProductsList';
-import Products from './components/Products';
 import CartList from './components/CartList';
+import CartPrice from './components/CartPrice';
 
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
   const [currentSale, setCurrentSale] = useState([]);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
-  console.log(filteredProducts)
+
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     fetch('https://hamburgueria-kenzie-json-serve.herokuapp.com/products')
@@ -28,24 +29,41 @@ function App() {
 
     const verification = currentSale.some(({ id }) => id === productId)
 
-    !verification && setCurrentSale([...currentSale, findId])
+    if (verification) {
+      return toast.error("Este produto já está no carrinho")
+    } else {
+      toast.success("Adicionado ao carrinho")
+      return setCurrentSale([...currentSale, findId])
+    }
   }
 
-  useEffect(() => {
+  const showProducts = () => {
+    const filterInput = products.filter(({ name }) => name.toLowerCase() === inputValue.toLowerCase())
+    setFilteredProducts(filterInput)
+  }
 
-  })
+  const removeProduct = (product) => {
+    const filterProduct = currentSale.filter((element) => element !== product)
+    setCurrentSale(filterProduct)
+  }
 
-  // const filter = (array) => {
-  //   const products = products.filter(({name}) => )
-  //   const filterProducts = filteredProducts.filter(({name}) => )
-  // }
+  const removeAllProducts = (product) => {
+    const filterAllProducts = currentSale.filter(({ id }) => id === product)
+    setCurrentSale(filterAllProducts)
+  }
 
   return (
     <div className="App">
+      <Toaster position='top-center' reverseOrder={false} toastOptions={{ style: { fontFamily: "Inter" } }} />
       <div>
-        <Header setFilteredProducts={setFilteredProducts}/>
-        <ProductsList products={products} handleClick={handleClick} />
-        <CartList currentSale={currentSale} />
+        <Header showProducts={showProducts} inputValue={inputValue} setInputValue={setInputValue} />
+        <div className='global'>
+          <ProductsList products={products} handleClick={handleClick} inputValue={inputValue} filteredProducts={filteredProducts} />
+          <div className='cartContainer'>
+            <CartList currentSale={currentSale} removeProduct={removeProduct} />
+            <CartPrice currentSale={currentSale} removeAllProducts={removeAllProducts} />
+          </div>
+        </div>
       </div>
     </div>
   );
