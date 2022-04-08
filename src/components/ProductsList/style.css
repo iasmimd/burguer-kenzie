@@ -4,7 +4,7 @@
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   margin: 0 auto;
-  height: 44vh;
+  height:   331px;  
   width: 93vw;
   margin-top: 15px;
 }
@@ -16,8 +16,7 @@
     overflow-x: hidden;
     width: 60vw;
     margin: 0;
-    margin-left: 2vw;
-    height: 81vh;
+    height: 680px;
     margin-top: 20px;
   }
 }

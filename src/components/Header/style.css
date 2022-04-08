@@ -26,8 +26,13 @@ header {
   padding: 6px 2px 6px 6px;
 }
 
+.inputContainer:focus-within {
+  border: 1px solid #333333;
+}
+
 .inputHeader {
   font-family: "inter";
+  padding-left: 10px;
   font-weight: 100;
   font-size: 14px;  
   width: 73%;
@@ -54,12 +59,18 @@ header {
   width: 26%;
   border-radius: 8px;
   font-size: 80%;
+  transition: 0.5s;
+}
+
+.buttonHeader:hover{
+  background-color: #93D7AF;
 }
 
 @media (min-width: 1024px){
   header{
     flex-direction: row;
     justify-content: space-between;
+    height: 75px;
     padding: 0px 5vw;
   }
 

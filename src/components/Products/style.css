@@ -1,5 +1,3 @@
-
-
 .productCard {
     display: flex;
     flex-direction: column;
@@ -8,8 +6,13 @@
     border: 2px solid #E0E0E0;
     border-radius: 4px;
     margin-right: 20px;
-    height: 39vh;
+    height: 325px;
     scroll-snap-align: center;
+    transition: 0.5s;
+}
+
+.productCard:hover{
+  border: 2px solid #333333;
 }
 
 .productDescription {
@@ -78,6 +81,11 @@
   height: 35px;
   left: 20px;
   top: 133px;
+  transition: 0.5s;
+}
+
+.buttonAdd:hover{
+  background-color: #93D7AF;
 }
 
 @media (min-width: 1024px){
@@ -86,8 +94,8 @@
   }
 }
 
-@media (min-width: 1546px){
-  .productCard{
-    height: 38vh;
+@media (min-width: 1600px){
+  .productDescription{
+    padding: 10px 0px 11px 13px;
   }
 }

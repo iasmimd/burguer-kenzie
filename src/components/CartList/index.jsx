@@ -1,5 +1,6 @@
 import "./style.css";
 import Empty from "../../assets/empty.svg";
+import toast from "react-hot-toast";
 import { BiTrash } from "react-icons/bi";
 import CartProducts from "../CartProducts";
 
@@ -11,7 +12,7 @@ const CartList = ({ currentSale, removeProduct }) => {
       </div>
       <ul className="cartUl">
         {currentSale.length < 1 ? (
-          <img src={Empty} alt=""/>
+          <img src={Empty} alt="" />
         ) : (
           currentSale.map((item) => (
             <>
@@ -21,7 +22,14 @@ const CartList = ({ currentSale, removeProduct }) => {
                 name={item.name}
                 category={item.category}
               >
-                {<BiTrash onClick={() => removeProduct(item)} />}
+                {
+                  <BiTrash
+                    onClick={() => {
+                      removeProduct(item);
+                      toast.success("Item removido com sucesso")
+                    }}
+                  />
+                }
               </CartProducts>
             </>
           ))

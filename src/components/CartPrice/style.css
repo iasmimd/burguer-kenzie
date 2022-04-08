@@ -34,6 +34,12 @@
   font-size: 16px;
   height: 45px;
 width: 100%;
+transition: 0.5s;
+}
+
+.buttonRemoveAll:hover{
+  background-color: #828282;
+  color: #ffffff
 }
 
 .productPriceCart {

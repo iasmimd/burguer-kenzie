@@ -38,7 +38,7 @@ function App() {
   }
 
   const showProducts = () => {
-    const filterInput = products.filter(({ name }) => name.toLowerCase() === inputValue.toLowerCase())
+    const filterInput = products.filter(({ name, category }) => name.toLowerCase().includes(inputValue.toLowerCase()) || category.toLowerCase().includes(inputValue.toLocaleLowerCase()))
     setFilteredProducts(filterInput)
   }
 
@@ -60,8 +60,15 @@ function App() {
         <div className='global'>
           <ProductsList products={products} handleClick={handleClick} inputValue={inputValue} filteredProducts={filteredProducts} />
           <div className='cartContainer'>
-            <CartList currentSale={currentSale} removeProduct={removeProduct} />
-            <CartPrice currentSale={currentSale} removeAllProducts={removeAllProducts} />
+            {
+              currentSale.length > 0 ?
+                <>
+                  <CartList currentSale={currentSale} removeProduct={removeProduct} />
+                  <CartPrice currentSale={currentSale} removeAllProducts={removeAllProducts} />
+                </>
+                :
+                <CartList currentSale={currentSale} removeProduct={removeProduct} />
+            }
           </div>
         </div>
       </div>
