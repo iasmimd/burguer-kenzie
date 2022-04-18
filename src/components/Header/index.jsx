@@ -5,8 +5,7 @@ import LogoHeader from "../../assets/logoHeader.svg";
 const Header = ({
   showProducts,
   inputValue,
-  setInputValue,
-  filteredProducts,
+  setInputValue
 }) => {
   return (
     <header>

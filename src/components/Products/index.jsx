@@ -1,7 +1,6 @@
 import "./style.css";
 
 const Products = ({ img, name, category, price, id, handleClick }) => {
-  // console.log(id);
 
   return (
     <li className="productCard">

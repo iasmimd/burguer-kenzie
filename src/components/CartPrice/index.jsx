@@ -19,8 +19,8 @@ const CartPrice = ({ currentSale, removeAllProducts }) => {
       <div className="removeAll">
         <button
           className="buttonRemoveAll"
-          onClick={(e) => {
-            removeAllProducts(e.target);
+          onClick={() => {
+            removeAllProducts();
             toast.success("Todos os itens removidos com sucesso");
           }}
         >

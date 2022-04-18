@@ -47,9 +47,8 @@ function App() {
     setCurrentSale(filterProduct)
   }
 
-  const removeAllProducts = (product) => {
-    const filterAllProducts = currentSale.filter(({ id }) => id === product)
-    setCurrentSale(filterAllProducts)
+  const removeAllProducts = () => {
+    setCurrentSale([])
   }
 
   return (
